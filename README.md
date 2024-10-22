@@ -1,12 +1,7 @@
-A data structure is a named location that can be used to store and organize data.
-    Ø Primitive Data Structures- basic data structures provided by programming languages to store single values.
-    Ø Abstract Data Structures - higher level data structures that are built using primitive data structures and are provide more complex and specialized operations e.g. arrays, linked lists, stacks, queues, trees and graphs .
-Algorithms- a set of step by step instructions to solve a problem or achieve a specific goal.
+# Build A Salary Prediction Web App With Streamlit
 
-Learning guide
-learn a P.L
--I'll use Java and C++
-learn Data Structures
-Learn Algorithms
-Time and Space Complexities
-Practice problems on DSA
+Build a Machine Learning web application from scratch in Python with Streamlit. We use real world data to build a machine learning model. In the first part of the video you learn how we analyze the data and build our model, and in the second part we build the web app using streamlit.
+
+Watch the video on YouTube:  
+[![Alt text](https://img.youtube.com/vi/xl0N7tHiwlw/hqdefault.jpg)](https://youtu.be/xl0N7tHiwlw)  
+[https://youtu.be/xl0N7tHiwlw](https://youtu.be/xl0N7tHiwlw)
