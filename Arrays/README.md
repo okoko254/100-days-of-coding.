@@ -33,3 +33,15 @@ It is used in image processing.
 It is also used in record management.
 Book pages are also real-life examples of an array.
 It is used in ordering boxes as well.
+
+Advantages
+Allow random access to elements
+Have better cache locality- makes a pretty big difference in perfomance
+Represent multiple data items of the same type using a single name
+used to implement other data structures like Linked lists, stacks, queues, trees, graphs etc
+
+Disadvantages
+fixed size
+Allocating less memory than required to an array will lead to loss of data
+homogenous in nature; one data type
+Stores data in contuguos memory locations- makes insertion and deletion difficult
