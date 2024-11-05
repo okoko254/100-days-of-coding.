@@ -30,7 +30,7 @@ public class BalancedParentheses{
 
         System.out.println("---Balanced Parentheses Check---");
         System.out.print("Enter an expression containing brackets([] or () or {} ): ");
-        String expression = scanner.nextLine();
+        String expression = scanner.nextL~ine();
 
         if (isBalanced(expression) == true){
             System.out.println("The expression is balanced");
