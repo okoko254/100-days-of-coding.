@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build C++",
+      "type": "shell",
+      "command": "C:\\Program Files (x86)\\Falcon\\MinGW\\bin\\g++.exe",  // Make sure to use g++ here
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "Build C++ files with g++"
+    }
+  ]
+}

@@ -3,6 +3,12 @@ Benefits
 -nodes don't have to be stored contiguously(right next to each other)
 -When adding or removing nodes, the rest of the nodes in the list don't have to be shifted.
 
+Head- the ponter to the first node
+Tail- points to null or nullptr indicating the end of the list
+
+Disadvantages
+It's bad for searching
+
 Characteristics
 1st node is called a head and the last node is called a tail
 
@@ -14,6 +20,14 @@ Searching for Elements- LinkedList can be searched for a specific element by sta
 Updating elements- updated by modifying the value of a specific node
 Traversing elements - The elements of a linkedlist can be traversed by starting from the head node and following the refernces to the next nodes until the end of the list is reached.
 Reversing a linked list- the linked list can be reversed by updating the refernces of each node so that they point to the previous node instead of the next node
+
+Double LinkedLists
+[address | data | addresss] <-> [address | data | address]
+Have two addresses one for the previous and the other one for the next
+Requires a lot of memory 
+Easier to traverse because it can traverse form head to tail or tail to head
+
+Syntax
 
 Applications of the Linked list: 
 Different applications of linked lists are as follows:
