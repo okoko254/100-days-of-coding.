@@ -135,4 +135,76 @@ class LinkedList{
 
         return head;
      }
+
+     static Node removeFirstNode(Node head){
+        if(head == null){
+            return null; //list is empty
+        }
+
+        Node temp = head;
+        head = head.next;
+
+        return head;
+     }
+
+     Node removeLastNode(Node head){
+        //if the list is empty return null
+        if (head == null){
+            return null;
+        }
+
+        //if the list has only one node, delete it and return null
+        if (head.next == null){
+            head = null;
+            return null;
+        }
+
+        //Find the second last node
+        Node second_last = head;
+        while (second_last.next.next != null){
+            second_last = second_last.next;//I would have thought about using a counter but this is genius!
+
+            //Remove the last node
+            second_last.next = null;
+
+            //Return the modifier list
+            return head;
+            //I don't understand why we've been returning head only in almost every method
+        }
+     }
+
+     public void deleteAtPosition(Node head, int position){
+        //if the list is empty pr the position is invalid
+        if(head == null || position < 1){
+            return ; //why not return null;
+        }
+
+        //if the head needs to be deleted
+        if (position == 1) {
+            Node temp = head;
+            head = head.next;
+            temp = null;
+            return;
+        } //you'll have to explain this if block of code
+
+        //Traverse to the node before the position to be deleted
+        Node current = head;
+        for(int i = 1; i < position - 1 && current != null; i++){
+            current = current.next;
+        }
+
+        //if the position is out of range
+        if (current == null || current.next == null){
+            return;
+        }
+
+        //store the node to be deleted
+        Node temp = current.next;
+
+        //update the links to bypass the node to be deleted
+        current.next = current.next.next;
+
+        //delete the node
+        temp = null;
+     }
 }
