@@ -1,6 +1,8 @@
  package LinkedList;
 
- class Node {
+import java.util.Scanner;
+
+class Node {
 
     int data ;
     Node next ;
@@ -68,7 +70,7 @@ class LinkedList{
      */
 
      public Node InsertAtBeginning(Node head, int value){ //explain why these values have been placed in the parenheses
-        //Create a newNode with the givven value
+        //Create a newNode with the given value
         Node newNode = new Node(value);
 
         //sets next pointer of the newNode to the current head
@@ -147,7 +149,7 @@ class LinkedList{
         return head;
      }
 
-     Node removeLastNode(Node head){
+     static Node removeLastNode(Node head){
         //if the list is empty return null
         if (head == null){
             return null;
@@ -163,20 +165,20 @@ class LinkedList{
         Node second_last = head;
         while (second_last.next.next != null){
             second_last = second_last.next;//I would have thought about using a counter but this is genius!
-
+        }
             //Remove the last node
             second_last.next = null;
 
             //Return the modifier list
             return head;
-            //I don't understand why we've been returning head only in almost every method
-        }
+            
+        
      }
 
      public void deleteAtPosition(Node head, int position){
         //if the list is empty pr the position is invalid
         if(head == null || position < 1){
-            return ; //why not return null;
+            return ; 
         }
 
         //if the head needs to be deleted
@@ -185,7 +187,7 @@ class LinkedList{
             head = head.next;
             temp = null;
             return;
-        } //you'll have to explain this if block of code
+        } 
 
         //Traverse to the node before the position to be deleted
         Node current = head;
@@ -207,4 +209,103 @@ class LinkedList{
         //delete the node
         temp = null;
      }
+}
+
+public class LinkedListExample{
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("---LinkedList Operations---");
+            System.out.println("1. Insertion \n2. Traversal \n3. Searching \n4. Length \n5. Deletion \n6. Exit. ");
+            System.out.print("Choose an operation to perform: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); //This line generates an error, why? ~ I used capital S
+
+            switch (choice) {
+                case 1:
+                    System.out.println("1. Insert at the beginning \n2. Insert at the end \n3. Insert at a specific position ");
+                    System.out.print("Choose the position to insert: ");
+                    
+                    int position = scanner.nextInt();
+                    scanner.nextLine();//to consume the newline
+
+                    System.out.print("Enter the value to insert: ");
+                    int value = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if (position == 1){
+                        list.head = list.InsertAtBeginning(list.head, value);
+                    }
+                    else if(position == 2){
+                        list.head = list.InsertAtEnd(list.head, position);
+                    }
+                    else if (position == 3){
+                        System.out.print("Enter the position to be inserted: ");
+                        int pos = scanner.nextInt();
+                        scanner.nextLine();
+                        list.head = LinkedList.inserPos(list.head, pos, value);
+                    }
+                    else{
+                        System.out.println("Invalid input!");
+                    }
+                    break;
+
+                case 2:
+                    LinkedList.traverseLinkedList(list.head);
+                    break; 
+                    
+                case 3:
+                    System.out.print("Enter the value to be searched: ");
+                    int target = scanner.nextInt();
+                    scanner.nextLine();
+                    boolean found = list.searchLinkedList(list.head, target);
+                    System.out.println("Found: " + found);
+                    break;
+            
+                case 4:
+                int length = list.lengthLinkedList(list.head);
+                    System.out.println("Length of the LinkedList: " + length);
+                    break;
+
+                case 5:
+                    System.out.println("1. Delete at the beginning \n2. Delete at the end \n3. Delete at a specific position ");
+                    System.out.print("Choose the position to Delete: ");
+
+                    position =scanner.nextInt(); //is there a problem if I still use position here?
+                    scanner.nextLine();
+
+                    if (position == 1) {
+                        list.head = LinkedList.removeFirstNode(list.head); //why use LinkedList and not list
+                    }
+                    else if (position == 2) {
+                        list.head = LinkedList.removeLastNode(list.head);
+                    }
+                    else if(position == 3){
+                        System.out.print("Enter the position to be deleted: ");
+                        int pos = scanner.nextInt();
+                        scanner.nextLine();
+                        list.deleteAtPosition(list.head, pos);
+                    }
+                    else{
+                        System.out.println("Invalid input!");
+                    }
+
+                case 6:
+                    System.out.println("Exiting...");
+                    scanner.close();
+                    return; //I'm trying to break out of the while loop
+
+                default:
+                    System.out.println("Invalid choice! Please try again.");
+                    break;
+
+                //I'd say my main challenge here was to figure out how to call functions 
+                //and what parameters to be passed in function calling
+                //Also trying to figure out where to put scanner.nextLine() after accepting integer input
+            }
+        }
+    }
 }
