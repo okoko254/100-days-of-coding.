@@ -50,6 +50,12 @@ public class DoublyList {
         System.out.println(); //print newline after traversal
     }
 
+    static int FindLength(Node head){
+        int count = 0;
+        for (Node cur = head; cur != null; cur = cur.next)
+            count++;
+        return count;
+    }
     public static void main(String[] args) {
         Node head = new Node(1);
         Node second = new Node(2);
@@ -65,6 +71,8 @@ public class DoublyList {
 
         System.out.println("Backward Traversal: ");
         backwardTraversal(third);
+
+        System.out.println("Length of doubly linkedlist: " + FindLength(head));
     }
 }
     
