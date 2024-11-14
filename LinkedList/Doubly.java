@@ -23,7 +23,7 @@ class Node {
 }
 
 //Class to manage the doubly linkedlist
-public class Doub {
+public class Doubly {
     //Function to traverse the doubly linked list in forward direction
     static void forwardTraversal(Node head){
         //Start traversal from the head of the list
